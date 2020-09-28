@@ -13,18 +13,38 @@ function message(m) {
 */
 
 
+let output = document.getElementById('output');
+let i=0;
+let j=41;
 
-
-addbutton(0);
+addbutton(i);
 function addbutton(i){
-    let output = document.getElementById('output'); 
+     
     let button = document.createElement("button");
+    let y;
     i=i+1;
-    button.textContent="Button " + i;
+    button.textContent=i;
+    if(i%3==0){
+        button.style.background="green";
+        button.addEventListener("click", function (){
+            y=Number(button.textContent);
+            button.textContent = y+1;
+        });
+    }
+    
     output.append(button);
     console.log(output);
     if(i<42){
-        addbutton (i);
+        addbutton(i);
     }
-
+    /*alert("Button" + i + " was presed!");*/
 }
+
+
+
+
+let add_button=document.getElementById("add");
+add_button.addEventListener("click", function (){
+   j++;
+   addbutton(j);
+});
